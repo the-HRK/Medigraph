@@ -1,0 +1,118 @@
+id,name,type,category,description,side_effects
+DRG_0001,Lisinopril,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0002,Enalapril,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0003,Losartan,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0004,Valsartan,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0005,Metoprolol,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0006,Atenolol,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0007,Amlodipine,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0008,Atorvastatin,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0009,Simvastatin,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0010,Rosuvastatin,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0011,Omeprazole,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0012,Pantoprazole,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0013,Esomeprazole,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0014,Metformin,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0015,Glipizide,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0016,Insulin Glargine,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0017,Levothyroxine,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0018,Prednisone,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0019,Dexamethasone,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0020,Amoxicillin,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0021,Azithromycin,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0022,Ciprofloxacin,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0023,Metronidazole,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0024,Doxycycline,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0025,Vancomycin,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0026,Warfarin,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0027,Rivaroxaban,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0028,Apixaban,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0029,Heparin,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0030,Lisinopril,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0031,Spironolactone,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0032,Furosemide,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0033,Hydrochlorothiazide,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0034,Sertraline,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0035,Fluoxetine,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0036,Escitalopram,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0037,Venlafaxine,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0038,Bupropion,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0039,Amitriptyline,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0040,Risperidone,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0041,Quetiapine,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0042,Aripiprazole,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0043,Olanzapine,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0044,Alprazolam,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0045,Lorazepam,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0046,Diazepam,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0047,Clonazepam,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0048,Levetiracetam,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0049,Valproic Acid,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0050,Carbamazepine,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0051,Lamotrigine,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0052,Ibuprofen,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0053,Naproxen,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0054,Diclofenac,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0055,Celecoxib,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0056,Acetaminophen,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0057,Oxycodone,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0058,Hydrocodone,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0059,Morphine,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0060,Tramadol,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0061,Gabapentin,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0062,Pregabalin,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0063,Albuterol,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0064,Ipratropium,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0065,Salmeterol,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0066,Tiotropium,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0067,Montelukast,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0068,Cetirizine,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0069,Loratadine,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0070,Diphenhydramine,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0071,Acyclovir,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0072,Valacyclovir,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0073,Oseltamivir,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0074,Fluconazole,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0075,Itraconazole,drug,Pharmacological,A medication used in treatment.,Headache
+DRG_0076,Allopurinol,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0077,Colchicine,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0078,Alendronate,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0079,Denosumab,drug,Pharmacological,A medication used in treatment.,Nausea
+DRG_0080,Ciprofloxacin,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0081,Levofloxacin,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0082,Methylphenidate,drug,Pharmacological,A medication used in treatment.,Dry mouth
+DRG_0083,Atomoxetine,drug,Pharmacological,A medication used in treatment.,Dizziness
+DRG_0084,Sildenafil,drug,Pharmacological,A medication used in treatment.,Fatigue
+DRG_0085,Tadalafil,drug,Pharmacological,A medication used in treatment.,Dry mouth
+TRT_0001,Physical Therapy,treatment,Intervention,A treatment procedure.,
+TRT_0002,Occupational Therapy,treatment,Intervention,A treatment procedure.,
+TRT_0003,Speech Therapy,treatment,Intervention,A treatment procedure.,
+TRT_0004,Chemotherapy,treatment,Intervention,A treatment procedure.,
+TRT_0005,Radiation Therapy,treatment,Intervention,A treatment procedure.,
+TRT_0006,Immunotherapy,treatment,Intervention,A treatment procedure.,
+TRT_0007,Dialysis,treatment,Intervention,A treatment procedure.,
+TRT_0008,Cognitive Behavioral Therapy,treatment,Intervention,A treatment procedure.,
+TRT_0009,Electroconvulsive Therapy,treatment,Intervention,A treatment procedure.,
+TRT_0010,Appendectomy,treatment,Intervention,A treatment procedure.,
+TRT_0011,Cholecystectomy,treatment,Intervention,A treatment procedure.,
+TRT_0012,Colectomy,treatment,Intervention,A treatment procedure.,
+TRT_0013,Hernia Repair,treatment,Intervention,A treatment procedure.,
+TRT_0014,Coronary Artery Bypass Grafting,treatment,Intervention,A treatment procedure.,
+TRT_0015,Heart Valve Replacement,treatment,Intervention,A treatment procedure.,
+TRT_0016,Pacemaker Implantation,treatment,Intervention,A treatment procedure.,
+TRT_0017,Joint Replacement,treatment,Intervention,A treatment procedure.,
+TRT_0018,Arthroscopy,treatment,Intervention,A treatment procedure.,
+TRT_0019,Thyroidectomy,treatment,Intervention,A treatment procedure.,
+TRT_0020,Mastectomy,treatment,Intervention,A treatment procedure.,
+TRT_0021,Hysterectomy,treatment,Intervention,A treatment procedure.,
+TRT_0022,Prostatectomy,treatment,Intervention,A treatment procedure.,
+TRT_0023,Dietary Modification,treatment,Intervention,A treatment procedure.,
+TRT_0024,Exercise Program,treatment,Intervention,A treatment procedure.,
+TRT_0025,Smoking Cessation,treatment,Intervention,A treatment procedure.,
+TRT_0026,Weight Management,treatment,Intervention,A treatment procedure.,
+TRT_0027,Stress Management,treatment,Intervention,A treatment procedure.,
+TRT_0028,Insulin Pump,treatment,Intervention,A treatment procedure.,
+TRT_0029,CPAP Machine,treatment,Intervention,A treatment procedure.,
+TRT_0030,Oxygen Therapy,treatment,Intervention,A treatment procedure.,
+TRT_0031,Nebulizer,treatment,Intervention,A treatment procedure.,
+TRT_0032,Cardiac Monitoring,treatment,Intervention,A treatment procedure.,
