@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StaySync | Dynamic Section Builder Visualizer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7ccaff',
+              400: '#38b2ff',
+              500: '#0ea5e9', // Sky 500
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0b1329;
+      color: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+    .gradient-border {
+      position: relative;
+      background: linear-gradient(to right, #0ea5e9, #6366f1);
+      padding: 1px;
+      border-radius: 0.75rem;
+    }
+    .gradient-border-inner {
+      background: #1e293b;
+      border-radius: 11px;
+    }
+    .slide-fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease-out;
+    }
+    .slide-fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white custom-scrollbar">
+
+  <!-- Header Section -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="bg-gradient-to-tr from-brand-600 to-indigo-600 p-2 rounded-lg text-white">
+          <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg text-white tracking-tight flex items-center">
+            StaySync <span class="ml-2 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-indigo-500/15 text-indigo-400 rounded-full border border-indigo-500/20">Dynamic Section Builder</span>
+          </span>
+          <p class="text-xs text-slate-400 font-medium">Natural-Language-Driven Section Customization Spec & Playground</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="#playground" class="bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-brand-600/25 flex items-center space-x-2">
+          <i class="fa-solid fa-gamepad"></i>
+          <span>Launch Simulator</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    
+    <!-- Hero / Intro -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center bg-slate-900/40 p-8 rounded-2xl border border-slate-800/80">
+      <div class="lg:col-span-2 space-y-4">
+        <h1 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">
+          Eliminating Redeploys for Dashboard Changes
+        </h1>
+        <p class="text-slate-300 text-base leading-relaxed">
+          StaySync aggregates client intelligence (Financials, Tech Stack, Competitive, etc.). However, client-facing users frequently demand field edits (e.g., adding a table column, changing a KPI). Traditionally, this requires backend schema changes, prompt rewrites, frontend component modifications, and full system redeployments.
+        </p>
+        <div class="p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 flex items-start space-x-3">
+          <i class="fa-solid fa-circle-info text-brand-400 mt-1"></i>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            <strong class="text-slate-200">The Solution:</strong> A dual-LLM pipeline utilizing a <span class="text-brand-400 font-semibold">Prompt/Schema Refiner</span> and a <span class="text-indigo-400 font-semibold">Production Data Extractor</span>. The system refines prompt texts and lightweight JSON schemas dynamically from natural language input. A **generic dynamic renderer** instantly handles layout adjustments, removing developers entirely from simple field-level change loops.
+          </p>
+        </div>
+      </div>
+      <div class="space-y-3 bg-slate-900/90 p-6 rounded-xl border border-slate-800 shadow-xl">
+        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">At a Glance</span>
+        <div class="space-y-4 text-sm">
+          <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+            <span class="text-slate-400"><i class="fa-solid fa-layer-group text-slate-500 mr-2"></i> Fixed Layouts</span>
+            <span class="font-semibold text-slate-200">5 Layout Templates</span>
+          </div>
+          <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+            <span class="text-slate-400"><i class="fa-solid fa-code text-slate-500 mr-2"></i> Validation</span>
+            <span class="font-semibold text-slate-200">Loose-Schema Zod Guard</span>
+          </div>
+          <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+            <span class="text-slate-400"><i class="fa-solid fa-shield-halved text-slate-500 mr-2"></i> Human Governance</span>
+            <span class="font-semibold text-slate-200">One-Click Approval Gate</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-slate-400"><i class="fa-solid fa-clock-rotate-left text-slate-500 mr-2"></i> Versioning</span>
+            <span class="font-semibold text-emerald-400 flex items-center">
+              <span class="h-2 w-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+              Full Rollback Audit
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Simulation Playground Section -->
+    <section id="playground" class="scroll-mt-20">
+      <div class="border border-slate-800 rounded-2xl bg-slate-900/60 overflow-hidden shadow-2xl">
+        <!-- Section Header -->
+        <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-6 border-b border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-1">Live Interactive Demo</span>
+            <h2 class="text-2xl font-bold text-white flex items-center">
+              <i class="fa-solid fa-terminal text-slate-400 mr-2.5 text-lg"></i>
+              Dynamic Section Customizer Playground
+            </h2>
+            <p class="text-slate-400 text-sm mt-0.5">Simulate how StaySync updates prompt schemas in real time, showing visual changes instantly.</p>
+          </div>
+          
+          <!-- Controller / Active Section Picker -->
+          <div class="flex items-center space-x-3">
+            <label class="text-sm font-semibold text-slate-300">Select Section Config:</label>
+            <select id="section-selector" class="bg-slate-800 border border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 px-3 py-2 outline-none font-semibold transition" onchange="switchSection()">
+              <option value="employee-list">Employee List (Table Layout)</option>
+              <option value="financial-overview">Financial Overview (KPI Grid Layout)</option>
+              <option value="strategic-priorities">Strategic Priorities (List Layout)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-800">
+          
+          <!-- Left Control Panel (Admin Inputs & Proposed Diff) -->
+          <div class="lg:col-span-5 p-6 space-y-6 flex flex-col justify-between">
+            <div class="space-y-5">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-300 flex items-center">
+                  <i class="fa-solid fa-gears text-slate-500 mr-2"></i> Configuration Control
+                </span>
+                <span id="active-version-badge" class="px-2 py-0.5 text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded font-mono">
+                  v1.0.0 (Active)
+                </span>
+              </div>
+
+              <!-- Active Schema Fields Display -->
+              <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800/80">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2.5">Active Schema Fields</span>
+                <div id="active-fields-container" class="flex flex-wrap gap-1.5">
+                  <!-- Generated dynamically -->
+                </div>
+              </div>
+
+              <!-- Natural Language Input -->
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between">
+                  <span>Describe Customization Request</span>
+                  <span class="text-[11px] text-brand-400 normal-case cursor-pointer hover:underline" onclick="insertSampleRequest()">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-1"></i>Insert Sample
+                  </span>
+                </label>
+                <div class="relative">
+                  <textarea id="nl-input" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-sm text-slate-200 placeholder:text-slate-600 focus:ring-1 focus:ring-brand-500 focus:border-brand-500 outline-none resize-none font-medium" placeholder="E.g., Add quarterly email, delete LinkedIn profile, format designation as a badge..."></textarea>
+                  <div class="absolute right-3 bottom-3 flex items-center space-x-1.5 text-xs text-slate-500">
+                    <span>Press Refine</span>
+                    <i class="fa-solid fa-arrow-turn-down text-[10px] transform rotate-90"></i>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] text-slate-500">Supported types: text, badge, currency, date, url...</span>
+                  <button id="refine-btn" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 shadow-lg shadow-indigo-600/15" onclick="refineSchema()">
+                    <i id="refine-icon" class="fa-solid fa-sparkles"></i>
+                    <span>Refine Prompt & Schema</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Refined Preview Diff Box (Hidden until Refine is clicked) -->
+              <div id="refine-diff-box" class="hidden space-y-4 border border-brand-500/30 bg-brand-500/5 p-4 rounded-xl animate-fadeIn">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-brand-400 uppercase tracking-wider flex items-center">
+                    <span class="relative flex h-2 w-2 mr-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                    </span>
+                    Helper LLM Proposal Draft
+                  </span>
+                  <span class="text-[10px] bg-slate-800 text-slate-300 font-mono px-1.5 py-0.5 rounded border border-slate-700">Refiner v1.5</span>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="text-xs">
+                    <span class="text-slate-400 font-semibold block mb-1">Proposed Prompt Update Snippet:</span>
+                    <p id="proposed-prompt-text" class="p-2.5 bg-slate-950 text-slate-300 rounded font-mono leading-normal border border-slate-900 text-[11px] max-h-24 overflow-y-auto custom-scrollbar">
+                      <!-- Filled by JS -->
+                    </p>
+                  </div>
+
+                  <div class="space-y-1.5">
+                    <span class="text-xs text-slate-400 font-semibold block">Field Changes Summary:</span>
+                    <div id="field-changes-summary" class="grid grid-cols-2 gap-2 text-xs">
+                      <!-- Filled by JS -->
+                    </div>
+                  </div>
+                  
+                  <div class="bg-slate-950 p-2.5 rounded border border-slate-900">
+                    <span class="text-[11px] font-bold text-indigo-400 uppercase tracking-wider block mb-1">Human Verification:</span>
+                    <p id="explanation-summary" class="text-[11px] text-slate-400 leading-relaxed"></p>
+                  </div>
+                </div>
+
+                <div class="flex items-center space-x-2 pt-2">
+                  <button class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white py-2 rounded-lg text-xs font-bold transition flex items-center justify-center space-x-1.5 shadow-lg shadow-emerald-600/20" onclick="approveSchema()">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Approve & Update Live</span>
+                  </button>
+                  <button class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-lg text-xs font-semibold transition" onclick="discardRefine()">
+                    Discard
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audit Log Summary -->
+            <div class="pt-4 border-t border-slate-800 mt-6 lg:mt-0">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Configuration History & Audit Trail</span>
+              <div id="audit-trail" class="space-y-2 text-xs">
+                <!-- Filled dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Rendering Panel (Active View Preview) -->
+          <div class="lg:col-span-7 p-6 space-y-6 bg-slate-900/20">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <span class="text-sm font-semibold text-slate-300 flex items-center">
+                  <i class="fa-solid fa-tv text-slate-500 mr-2"></i> Client Dashboard Section Preview
+                </span>
+                <span id="active-layout-badge" class="px-2 py-0.5 text-[10px] bg-slate-800 text-slate-300 border border-slate-700 rounded-full font-mono uppercase tracking-wider">
+                  layout: table
+                </span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <span class="h-2 w-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Generic Renderer</span>
+              </div>
+            </div>
+
+            <!-- Dynamic Renderer Container -->
+            <div class="border border-slate-800 bg-slate-950/80 rounded-xl p-5 min-h-[400px] flex flex-col justify-between">
+              
+              <div id="dynamic-rendering-area" class="w-full flex-1">
+                <!-- This will display the actual rendered layouts depending on selection -->
+              </div>
+
+              <!-- Extra Schema Metadata Footer -->
+              <div class="mt-4 pt-4 border-t border-slate-900 flex items-center justify-between text-[11px] text-slate-500">
+                <span id="schema-fields-count">Active Fields: 3 columns</span>
+                <span class="flex items-center">
+                  <i class="fa-solid fa-bolt text-amber-500 mr-1"></i>
+                  Data schema-validated with Zod wrapper
+                </span>
+              </div>
+            </div>
+
+            <!-- Prompt/Schema Descriptor Code Snippets -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                  <span>Prompt Text in Database</span>
+                  <i class="fa-solid fa-copy text-slate-600 hover:text-slate-400 cursor-pointer" onclick="copyText('db-prompt-box')"></i>
+                </span>
+                <pre class="bg-slate-950/95 border border-slate-900 rounded-xl p-3.5 text-[11px] text-slate-400 font-mono h-32 overflow-y-auto custom-scrollbar leading-relaxed" id="db-prompt-box">
+<!-- Filled dynamically -->
+                </pre>
+              </div>
+
+              <div class="space-y-2">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                  <span>Active schemaDescriptor JSON</span>
+                  <i class="fa-solid fa-copy text-slate-600 hover:text-slate-400 cursor-pointer" onclick="copyText('schema-descriptor-box')"></i>
+                </span>
+                <pre class="bg-slate-950/95 border border-slate-900 rounded-xl p-3.5 text-[11px] text-indigo-400 font-mono h-32 overflow-y-auto custom-scrollbar" id="schema-descriptor-box">
+<!-- Filled dynamically -->
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & System Flow Details -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- System Flow Walkthrough -->
+      <div class="border border-slate-800 bg-slate-900/30 p-6 rounded-2xl space-y-6">
+        <h3 class="text-xl font-bold text-white flex items-center">
+          <i class="fa-solid fa-network-wired text-brand-400 mr-3"></i>
+          Architectural Data Pipeline
+        </h3>
+        
+        <div class="space-y-5 relative pl-4 border-l border-slate-800">
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1 h-4 w-4 bg-slate-900 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-bold text-indigo-400">1</span>
+            <h4 class="text-sm font-bold text-white">Admin Inputs Request</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Admin invokes configuration edit via the UI header. Current config (`promptText` & `schemaDescriptor`) and requested natural language edits are sent to the backend endpoint.
+            </p>
+          </div>
+
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1 h-4 w-4 bg-slate-900 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-bold text-indigo-400">2</span>
+            <h4 class="text-sm font-bold text-white flex items-center">
+              Prompt/Schema Refined by LLM
+              <span class="ml-2 px-1.5 py-0.5 text-[9px] bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded font-semibold uppercase">Gemini Refiner</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              A high-speed Gemini model, configured with strict JSON output parameters, reviews the inputs and proposes: an updated `promptText`, an updated output JSON `schemaDescriptor`, and an english `changeSummary`.
+            </p>
+          </div>
+
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1 h-4 w-4 bg-slate-900 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-bold text-indigo-400">3</span>
+            <h4 class="text-sm font-bold text-white">Visual Diff & Approval Gate</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              The dashboard administrator receives a clean visual breakdown of changed, added, or removed fields. After human verification, clicking "Approve" triggers backend storage as the active version.
+            </p>
+          </div>
+
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1 h-4 w-4 bg-slate-900 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-bold text-indigo-400">4</span>
+            <h4 class="text-sm font-bold text-white flex items-center">
+              Re-Extraction & Storage
+              <span class="ml-2 px-1.5 py-0.5 text-[9px] bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded font-semibold uppercase">Production Gemini</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              The system executes a background call to the heavy extraction model with the new instructions. The structured response JSON is parsed, validated against the base metadata, and stored under `section_data`.
+            </p>
+          </div>
+
+          <div class="relative">
+            <span class="absolute -left-[25px] top-1 h-4 w-4 bg-slate-900 rounded-full border border-slate-700 flex items-center justify-center text-[10px] font-bold text-indigo-400">5</span>
+            <h4 class="text-sm font-bold text-white">Dynamic Renders via WebUI</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              The StaySync client intelligence frontend fetches the latest dataset plus the active `schemaDescriptor`. It resolves the preset layout template dynamically, using dynamic formatters with zero layout code adjustments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Relational Data Model Spec -->
+      <div class="border border-slate-800 bg-slate-900/30 p-6 rounded-2xl space-y-6">
+        <h3 class="text-xl font-bold text-white flex items-center">
+          <i class="fa-solid fa-database text-indigo-400 mr-3"></i>
+          Database Schema (SQL-Structured)
+        </h3>
+        
+        <div class="space-y-4">
+          <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950/80">
+            <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-200">section_configs</span>
+              <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Parent Config</span>
+            </div>
+            <pre class="p-4 text-xs text-slate-400 font-mono overflow-x-auto leading-relaxed">
+CREATE TABLE section_configs (
+  section_id VARCHAR(50) PRIMARY KEY,
+  client_id VARCHAR(50) NOT NULL,
+  section_type VARCHAR(50) NOT NULL, -- financials, tech-stack, etc.
+  layout_template VARCHAR(30) NOT NULL, -- table, kpi-grid, list, etc.
+  active_prompt_version_id INTEGER,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</pre>
+          </div>
+
+          <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950/80">
+            <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-200">prompt_versions</span>
+              <span class="text-[10px] uppercase font-bold text-indigo-400 tracking-wider">Version History</span>
+            </div>
+            <pre class="p-4 text-xs text-slate-400 font-mono overflow-x-auto leading-relaxed">
+CREATE TABLE prompt_versions (
+  id SERIAL PRIMARY KEY,
+  section_id VARCHAR(50) REFERENCES section_configs(section_id),
+  prompt_text TEXT NOT NULL,
+  schema_descriptor JSONB NOT NULL, -- keys, types, labels
+  change_summary TEXT,
+  status VARCHAR(20) DEFAULT 'draft', -- draft, active, superseded
+  approved_by VARCHAR(50),
+  approved_at TIMESTAMP
+);</pre>
+          </div>
+
+          <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950/80">
+            <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-slate-200">section_data</span>
+              <span class="text-[10px] uppercase font-bold text-emerald-400 tracking-wider">Extraction Payload</span>
+            </div>
+            <pre class="p-4 text-xs text-slate-400 font-mono overflow-x-auto leading-relaxed">
+CREATE TABLE section_data (
+  id SERIAL PRIMARY KEY,
+  section_id VARCHAR(50) REFERENCES section_configs(section_id),
+  prompt_version_id INTEGER REFERENCES prompt_versions(id),
+  data JSONB NOT NULL, -- parsed dynamic payload
+  fetched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  validation_status VARCHAR(20) -- success, warning, failed
+);</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pros, Cons, and Mitigations -->
+    <section class="space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl font-bold text-white">System Risk Assessment & Mitigations</h2>
+        <p class="text-slate-400 text-sm">Evaluating the core downsides of dynamic configurations alongside high-quality software engineering guardrails.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 space-y-4">
+          <div class="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <h4 class="text-base font-bold text-white">LLM Drift & Type Mismatches</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            The Prompt Refiner generates schema definitions (e.g., expecting a field to be <code class="text-brand-400 font-mono">currency</code>), but the Production Extractor might output an unparseable string with nested fields or letters.
+          </p>
+          <div class="bg-indigo-950/20 p-3.5 rounded-xl border border-indigo-900/30">
+            <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider block mb-1">StaySync Mitigation</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              **Defensive Formatting:** The React formatter handles unparseable text gracefully. If a `currency` field receives a text string, the engine outputs the raw string directly instead of throwing an error or displaying `NaN`.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 space-y-4">
+          <div class="h-10 w-10 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <h4 class="text-base font-bold text-white">Latency on Extraction</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Approving changes triggers an on-demand Production Extraction call, which can cause high page-loading wait states while compiling documents.
+          </p>
+          <div class="bg-indigo-950/20 p-3.5 rounded-xl border border-indigo-900/30">
+            <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider block mb-1">StaySync Mitigation</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              **Draft Queue + Schedulers:** Schema approvals are queued asynchronously. The frontend shows a "Re-indexing data..." loading state and loads cached historical datasets in read-only mode until the background job completes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 space-y-4">
+          <div class="h-10 w-10 rounded-xl bg-violet-500/10 text-violet-400 border border-violet-500/20 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <h4 class="text-base font-bold text-white">Schema Evolution Conflicts</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            When schemas are dynamically altered, prior executions of `section_data` mismatch the updated active `schemaDescriptor`, breaking history renders.
+          </p>
+          <div class="bg-indigo-950/20 p-3.5 rounded-xl border border-indigo-900/30">
+            <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider block mb-1">StaySync Mitigation</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              **Version Handshaking:** `section_data` binds tightly to `prompt_version_id`. If displaying historical pages, the engine resolves the matching version's schema instead of the current config to render exact historical columns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 mt-16 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="mb-2">StaySync Internal System Architecture Documentation — Dynamic Section Customizer Design Document</p>
+      <p>&copy; 2026 StaySync Client Intelligence. Confidential — For Intern & Engineer Onboarding Use Only.</p>
+    </div>
+  </footer>
+
+  <!-- Simulation Data Script -->
+  <script>
+    // In-memory simulator states
+    const sections = {
+      'employee-list': {
+        name: 'Employee List',
+        layout: 'table',
+        prompt: 'You are an extraction assistant. Analyze the client documents and pull a structured list of key employees, including their name, designation, and their hire date. Output JSON only matching the designated array structures.',
+        schema: {
+          layoutTemplate: 'table',
+          fields: [
+            { key: 'employeeName', label: 'Name', type: 'text' },
+            { key: 'designation', label: 'Designation', type: 'badge' },
+            { key: 'hireDate', label: 'Hire Date', type: 'date' }
+          ]
+        },
+        data: [
+          { employeeName: 'Alice Chen', designation: 'VP of Operations', hireDate: '2021-04-12' },
+          { employeeName: 'Robert Vance', designation: 'Sales Director', hireDate: '2019-10-01' },
+          { employeeName: 'Sarah Jenkins', designation: 'Technical Lead', hireDate: '2023-01-15' }
+        ],
+        samples: [
+          'Add email column and remove designation column',
+          'Add a salary column in currency format and LinkedIn profile URL'
+        ],
+        audit: [
+          { version: 'v1.0.0', type: 'System Boot', date: '2026-07-10', by: 'System Init', desc: 'Initial system load of Employee template.' }
+        ],
+        // Refinement definitions mapping request phrases to simulated Refiner outputs
+        refinementPaths: {
+          'add email column and remove designation column': {
+            revisedPrompt: 'You are an extraction assistant. Analyze the client documents and pull a structured list of key employees, including their name, their professional email address, and their hire date. Do not extract designation. Output JSON only matching the designated array structures.',
+            revisedSchema: {
+              layoutTemplate: 'table',
+              fields: [
+                { key: 'employeeName', label: 'Name', type: 'text' },
+                { key: 'email', label: 'Email Address', type: 'text' },
+                { key: 'hireDate', label: 'Hire Date', type: 'date' }
+              ]
+            },
+            changeSummary: 'Added email column, removed designation column.',
+            explanation: 'Re-aligned Prompt Extractor instructions to extract professional email addresses. Cleaned schema by removing designation keys.',
+            data: [
+              { employeeName: 'Alice Chen', email: 'alice.chen@petsmart.com', hireDate: '2021-04-12' },
+              { employeeName: 'Robert Vance', email: 'robert.vance@petsmart.com', hireDate: '2019-10-01' },
+              { employeeName: 'Sarah Jenkins', email: 'sarah.jenkins@petsmart.com', hireDate: '2023-01-15' }
+            ]
+          },
+          'add a salary column in currency format and linkedin profile url': {
+            revisedPrompt: 'You are an extraction assistant. Analyze the client documents and pull a structured list of key employees, including their name, designation, their estimated annual salary formatted as a number, their hire date, and their LinkedIn profile URL. Output JSON only matching the designated array structures.',
+            revisedSchema: {
+              layoutTemplate: 'table',
+              fields: [
+                { key: 'employeeName', label: 'Name', type: 'text' },
+                { key: 'designation', label: 'Designation', type: 'badge' },
+                { key: 'salary', label: 'Annual Salary', type: 'currency' },
+                { key: 'hireDate', label: 'Hire Date', type: 'date' },
+                { key: 'linkedin', label: 'LinkedIn', type: 'url' }
+              ]
+            },
+            changeSummary: 'Added estimated annual salary and LinkedIn profile columns.',
+            explanation: 'Injected salary extraction instruction with instructions to isolate numerical text. Appended linkedin column matching key arrays.',
+            data: [
+              { employeeName: 'Alice Chen', designation: 'VP of Operations', salary: 185000, hireDate: '2021-04-12', linkedin: 'https://linkedin.com/in/alice-chen-petsmart' },
+              { employeeName: 'Robert Vance', designation: 'Sales Director', salary: 145000, hireDate: '2019-10-01', linkedin: 'https://linkedin.com/in/robertv-vance' },
+              { employeeName: 'Sarah Jenkins', designation: 'Technical Lead', salary: 160000, hireDate: '2023-01-15', linkedin: 'https://linkedin.com/in/sarahj-tech' }
+            ]
+          }
+        }
+      },
+      'financial-overview': {
+        name: 'Financial Overview',
+        layout: 'kpi-grid',
+        prompt: 'You are an extraction assistant. Extract the corporate financials including Total Revenue, Net Income, and Gross Margin. Return them under the appropriate kpi mapping elements.',
+        schema: {
+          layoutTemplate: 'kpi-grid',
+          fields: [
+            { key: 'revenue', label: 'Annual Revenue', type: 'currency' },
+            { key: 'netIncome', label: 'Net Income', type: 'currency' },
+            { key: 'grossMargin', label: 'Gross Margin', type: 'percentage' }
+          ]
+        },
+        data: {
+          revenue: 12500000000,
+          netIncome: 850000000,
+          grossMargin: 38.5
+        },
+        samples: [
+          'Add Free Cash Flow and EBITDA Margin, remove Net Income',
+          'Add Quarterly growth index percentage and store expansion count badge'
+        ],
+        audit: [
+          { version: 'v1.0.0', type: 'System Boot', date: '2026-07-10', by: 'System Init', desc: 'Initial system load of Financial template.' }
+        ],
+        refinementPaths: {
+          'add free cash flow and ebitda margin, remove net income': {
+            revisedPrompt: 'You are an extraction assistant. Extract corporate financials including Total Revenue, Gross Margin, Free Cash Flow, and EBITDA Margin percentage. Do not extract Net Income. Return them under the appropriate kpi mapping elements.',
+            revisedSchema: {
+              layoutTemplate: 'kpi-grid',
+              fields: [
+                { key: 'revenue', label: 'Annual Revenue', type: 'currency' },
+                { key: 'grossMargin', label: 'Gross Margin', type: 'percentage' },
+                { key: 'fcf', label: 'Free Cash Flow', type: 'currency' },
+                { key: 'ebitdaMargin', label: 'EBITDA Margin', type: 'percentage' }
+              ]
+            },
+            changeSummary: 'Added Free Cash Flow and EBITDA Margin, removed Net Income.',
+            explanation: 'Realigned KPI instructions to parse Free Cash Flow fields and compute gross EBITDA percentages. Removed Net Income field key.',
+            data: {
+              revenue: 12500000000,
+              grossMargin: 38.5,
+              fcf: 420000000,
+              ebitdaMargin: 12.4
+            }
+          },
+          'add quarterly growth index percentage and store expansion count badge': {
+            revisedPrompt: 'You are an extraction assistant. Extract corporate financials including Total Revenue, Net Income, Gross Margin, Quarterly Growth Index percentage, and Store Expansion Count badge. Return them under the appropriate kpi mapping elements.',
+            revisedSchema: {
+              layoutTemplate: 'kpi-grid',
+              fields: [
+                { key: 'revenue', label: 'Annual Revenue', type: 'currency' },
+                { key: 'netIncome', label: 'Net Income', type: 'currency' },
+                { key: 'grossMargin', label: 'Gross Margin', type: 'percentage' },
+                { key: 'growthIndex', label: 'Quarterly Growth Index', type: 'percentage' },
+                { key: 'expansionCount', label: 'Expansion Count', type: 'badge' }
+              ]
+            },
+            changeSummary: 'Added Quarterly Growth Index and Store Expansion Count.',
+            explanation: 'Re-indexed schemas to evaluate relative expansion parameters. Inserted Growth indicators.',
+            data: {
+              revenue: 12500000000,
+              netIncome: 850000000,
+              grossMargin: 38.5,
+              growthIndex: 4.8,
+              expansionCount: '34 New Stores'
+            }
+          }
+        }
+      },
+      'strategic-priorities': {
+        name: 'Strategic Priorities',
+        layout: 'list',
+        prompt: 'Extract strategic initiatives, corporate actions, and executive notes. Deliver them as a formatted clean list of priorities.',
+        schema: {
+          layoutTemplate: 'list',
+          fields: [
+            { key: 'title', label: 'Priority Title', type: 'text' },
+            { key: 'owner', label: 'Executive Owner', type: 'text' },
+            { key: 'status', label: 'Status Tracker', type: 'badge' }
+          ]
+        },
+        data: [
+          { title: 'Digital First Omnichannel Upgrades', owner: 'CIO J. Carter', status: 'In Progress' },
+          { title: 'Supply Chain Resiliency Logistics Integration', owner: 'COO S. Patterson', status: 'Completed' },
+          { title: 'In-Store Automation Pilot', owner: 'VP Retail T. Mills', status: 'Planning' }
+        ],
+        samples: [
+          'Add investment cost columns and target date',
+          'Add strategic risk score, remove executive owner'
+        ],
+        audit: [
+          { version: 'v1.0.0', type: 'System Boot', date: '2026-07-10', by: 'System Init', desc: 'Initial system load of Strategic List template.' }
+        ],
+        refinementPaths: {
+          'add investment cost columns and target date': {
+            revisedPrompt: 'Extract strategic initiatives, corporate actions, executive owners, status track, total estimated investment costs, and target milestone dates. Deliver them as a formatted clean list.',
+            revisedSchema: {
+              layoutTemplate: 'list',
+              fields: [
+                { key: 'title', label: 'Priority Title', type: 'text' },
+                { key: 'owner', label: 'Executive Owner', type: 'text' },
+                { key: 'investment', label: 'Investment Budget', type: 'currency' },
+                { key: 'targetDate', label: 'Target Date', type: 'date' },
+                { key: 'status', label: 'Status Tracker', type: 'badge' }
+              ]
+            },
+            changeSummary: 'Added Investment Budget and Target Date variables.',
+            explanation: 'Modified prompting queries to discover budget constraints and completion dates inside corporate roadmap documents.',
+            data: [
+              { title: 'Digital First Omnichannel Upgrades', owner: 'CIO J. Carter', investment: 2500000, targetDate: '2027-01-31', status: 'In Progress' },
+              { title: 'Supply Chain Resiliency Logistics Integration', owner: 'COO S. Patterson', investment: 1200000, targetDate: '2026-11-15', status: 'Completed' },
+              { title: 'In-Store Automation Pilot', owner: 'VP Retail T. Mills', investment: 450000, targetDate: '2027-04-30', status: 'Planning' }
+            ]
+          },
+          'add strategic risk score, remove executive owner': {
+            revisedPrompt: 'Extract strategic initiatives, status trackers, and strategic risk level indicators (High, Medium, Low). Do not extract executive owner names.',
+            revisedSchema: {
+              layoutTemplate: 'list',
+              fields: [
+                { key: 'title', label: 'Priority Title', type: 'text' },
+                { key: 'riskScore', label: 'Strategic Risk', type: 'badge' },
+                { key: 'status', label: 'Status Tracker', type: 'badge' }
+              ]
+            },
+            changeSummary: 'Added strategic risk level column, removed executive owner.',
+            explanation: 'Omitted executive owner requirements. Appended qualitative strategic risk metric with custom badge rendering expectations.',
+            data: [
+              { title: 'Digital First Omnichannel Upgrades', riskScore: 'Medium Risk', status: 'In Progress' },
+              { title: 'Supply Chain Resiliency Logistics Integration', riskScore: 'Low Risk', status: 'Completed' },
+              { title: 'In-Store Automation Pilot', riskScore: 'High Risk', status: 'Planning' }
+            ]
+          }
+        }
+      }
+    };
+
+    let activeSectionId = 'employee-list';
+    let draftRefinement = null;
+
+    // Field Formatter Engine
+    function formatValue(value, type) {
+      if (value === undefined || value === null) return '<span class="text-slate-600">—</span>';
+      
+      switch (type) {
+        case 'currency':
+          if (typeof value === 'number') {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+          }
+          return value;
+        case 'percentage':
+          if (typeof value === 'number') {
+            return `${value}%`;
+          }
+          return value;
+        case 'date':
+          try {
+            const date = new Date(value);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+          } catch(e) {
+            return value;
+          }
+        case 'badge':
+          let badgeColor = 'bg-slate-800 text-slate-300 border-slate-700';
+          const lowerVal = String(value).toLowerCase();
+          if (lowerVal.includes('vp') || lowerVal.includes('director') || lowerVal.includes('high') || lowerVal.includes('completed')) {
+            badgeColor = 'bg-indigo-500/15 text-indigo-400 border-indigo-500/20';
+          } else if (lowerVal.includes('lead') || lowerVal.includes('medium') || lowerVal.includes('progress')) {
+            badgeColor = 'bg-amber-500/15 text-amber-400 border-amber-500/20';
+          } else if (lowerVal.includes('low') || lowerVal.includes('planning')) {
+            badgeColor = 'bg-sky-500/15 text-sky-400 border-sky-500/20';
+          }
+          return `<span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold border ${badgeColor}">${value}</span>`;
+        case 'url':
+          return `<a href="${value}" target="_blank" class="text-brand-400 hover:text-brand-300 hover:underline flex items-center inline-flex font-medium">
+            <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-[10px]"></i> View Profile
+          </a>`;
+        default:
+          return String(value);
+      }
+    }
+
+    // Core renderer mapping Layout configurations
+    function renderSection() {
+      const section = sections[activeSectionId];
+      const renderingArea = document.getElementById('dynamic-rendering-area');
+      const layoutBadge = document.getElementById('active-layout-badge');
+      const activeFieldsCount = document.getElementById('schema-fields-count');
+      const dbPromptBox = document.getElementById('db-prompt-box');
+      const schemaDescriptorBox = document.getElementById('schema-descriptor-box');
+
+      layoutBadge.textContent = `layout: ${section.schema.layoutTemplate}`;
+      activeFieldsCount.textContent = `Active Fields: ${section.schema.fields.length} dynamic parameters`;
+      dbPromptBox.textContent = section.prompt;
+      schemaDescriptorBox.textContent = JSON.stringify(section.schema, null, 2);
+
+      // Render Active Fields UI Chips
+      const fieldsContainer = document.getElementById('active-fields-container');
+      fieldsContainer.innerHTML = section.schema.fields.map(field => `
+        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-400 mr-1.5"></span>
+          ${field.label}
+          <span class="ml-1 text-[10px] text-slate-500 font-normal">(${field.type})</span>
+        </span>
+      `).join('');
+
+      // Render Layout templates
+      if (section.schema.layoutTemplate === 'table') {
+        let headersHTML = section.schema.fields.map(f => `<th class="px-4 py-3 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">${f.label}</th>`).join('');
+        let rowsHTML = section.data.map(row => {
+          let rowCellsHTML = section.schema.fields.map(f => `<td class="px-4 py-3.5 text-sm text-slate-200 border-b border-slate-900 font-medium">${formatValue(row[f.key], f.type)}</td>`).join('');
+          return `<tr class="hover:bg-slate-900/30 transition">${rowCellsHTML}</tr>`;
+        }).join('');
+
+        renderingArea.innerHTML = `
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-900">
+              <thead>
+                <tr>${headersHTML}</tr>
+              </thead>
+              <tbody class="divide-y divide-slate-900">${rowsHTML}</tbody>
+            </table>
+          </div>
+        `;
+      } 
+      else if (section.schema.layoutTemplate === 'kpi-grid') {
+        let cardsHTML = section.schema.fields.map(f => `
+          <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-800 flex flex-col justify-between space-y-2 hover:border-slate-700 transition">
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">${f.label}</span>
+            <div class="text-2xl font-black text-white tracking-tight">${formatValue(section.data[f.key], f.type)}</div>
+          </div>
+        `).join('');
+
+        renderingArea.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-2">${cardsHTML}</div>
+        `;
+      } 
+      else if (section.schema.layoutTemplate === 'list') {
+        let listHTML = section.data.map(item => {
+          let gridFieldsHTML = section.schema.fields.map(f => `
+            <div class="flex items-center space-x-2 text-xs">
+              <span class="text-slate-500 font-semibold uppercase tracking-wider text-[10px]">${f.label}:</span>
+              <span class="text-slate-200 font-semibold">${formatValue(item[f.key], f.type)}</span>
+            </div>
+          `).join('');
+
+          return `
+            <div class="p-4 bg-slate-900/30 hover:bg-slate-900/50 transition border border-slate-800 rounded-xl space-y-2 flex flex-col justify-between">
+              <div class="text-sm font-bold text-slate-100">${item.title || item[section.schema.fields[0].key]}</div>
+              <div class="flex flex-wrap gap-x-6 gap-y-2">${gridFieldsHTML}</div>
+            </div>
+          `;
+        }).join('');
+
+        renderingArea.innerHTML = `
+          <div class="space-y-3 py-1">${listHTML}</div>
+        `;
+      }
+
+      // Render Audit Trail List
+      const auditContainer = document.getElementById('audit-trail');
+      auditContainer.innerHTML = section.audit.map(log => `
+        <div class="p-2.5 bg-slate-950/80 rounded-lg border border-slate-900/80 flex items-start space-x-2">
+          <div class="h-5 w-5 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-[10px] text-indigo-400 font-mono shrink-0 mt-0.5">
+            ${log.version}
+          </div>
+          <div class="space-y-0.5 leading-relaxed">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-300 text-[11px]">${log.type}</span>
+              <span class="text-[10px] text-slate-500 font-mono">${log.date}</span>
+            </div>
+            <p class="text-[10px] text-slate-400 leading-normal">${log.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchSection() {
+      activeSectionId = document.getElementById('section-selector').value;
+      discardRefine();
+      document.getElementById('nl-input').value = '';
+      renderSection();
+    }
+
+    function insertSampleRequest() {
+      const section = sections[activeSectionId];
+      const randomIndex = Math.floor(Math.random() * section.samples.length);
+      document.getElementById('nl-input').value = section.samples[randomIndex];
+    }
+
+    function refineSchema() {
+      const textVal = document.getElementById('nl-input').value.trim();
+      if (!textVal) return alert('Please input a natural language instruction!');
+
+      const refineBtn = document.getElementById('refine-btn');
+      const refineIcon = document.getElementById('refine-icon');
+      
+      // Visual Loader State
+      refineBtn.disabled = true;
+      refineIcon.className = 'fa-solid fa-spinner animate-spin';
+
+      setTimeout(() => {
+        refineBtn.disabled = false;
+        refineIcon.className = 'fa-solid fa-sparkles';
+
+        const section = sections[activeSectionId];
+        const normalizedInput = textVal.toLowerCase();
+        
+        // Match mock query pathways or default fallback mock
+        let refinedResult = null;
+        for (let key in section.refinementPaths) {
+          if (normalizedInput.includes(key.substring(0, 15)) || key.substring(0, 15).includes(normalizedInput)) {
+            refinedResult = section.refinementPaths[key];
+            break;
+          }
+        }
+
+        if (!refinedResult) {
+          // Default mock path fallback to support random inputs gracefully
+          refinedResult = {
+            revisedPrompt: `${section.prompt} [Refined instruction appending custom query guidelines matching details requested: "${textVal}"]`,
+            revisedSchema: {
+              layoutTemplate: section.schema.layoutTemplate,
+              fields: [
+                ...section.schema.fields,
+                { key: 'customText', label: 'Extracted Note', type: 'text' }
+              ]
+            },
+            changeSummary: 'Appended customized notes parameters into schema configuration extraction pipeline.',
+            explanation: `Identified user requested notes on "${textVal}". Dynamically updated production instructions to isolate text nodes and populate "customText" fields.`,
+            data: Array.isArray(section.data) 
+              ? section.data.map(item => ({ ...item, customText: 'Extracted facts matching context document' }))
+              : { ...section.data, customText: 'Extracted facts matching context document' }
+          };
+        }
+
+        draftRefinement = refinedResult;
+
+        // Populate Draft Elements
+        document.getElementById('proposed-prompt-text').textContent = refinedResult.revisedPrompt;
+        document.getElementById('explanation-summary').textContent = refinedResult.explanation;
+
+        // Generate visual Diff (Added/Removed indicators)
+        const activeFieldsKeys = section.schema.fields.map(f => f.key);
+        const proposedFieldsKeys = refinedResult.revisedSchema.fields.map(f => f.key);
+
+        const addedFields = refinedResult.revisedSchema.fields.filter(f => !activeFieldsKeys.includes(f.key));
+        const removedFields = section.schema.fields.filter(f => !proposedFieldsKeys.includes(f.key));
+
+        let diffHTML = '';
+        if (addedFields.length > 0) {
+          diffHTML += `<div class="bg-emerald-500/10 p-2 rounded border border-emerald-500/20 text-emerald-400">
+            <span class="font-bold text-[10px] uppercase tracking-wider block">Added Fields:</span>
+            ${addedFields.map(f => `<p class="font-medium mt-0.5">• ${f.label} (${f.type})</p>`).join('')}
+          </div>`;
+        }
+        if (removedFields.length > 0) {
+          diffHTML += `<div class="bg-rose-500/10 p-2 rounded border border-rose-500/20 text-rose-400">
+            <span class="font-bold text-[10px] uppercase tracking-wider block">Removed Fields:</span>
+            ${removedFields.map(f => `<p class="font-medium mt-0.5">• ${f.label} (${f.type})</p>`).join('')}
+          </div>`;
+        }
+        if (addedFields.length === 0 && removedFields.length === 0) {
+          diffHTML += `<div class="col-span-2 bg-slate-800 p-2 rounded text-slate-400 text-center">
+            No fields structure changed (Prompt refinements only)
+          </div>`;
+        }
+
+        document.getElementById('field-changes-summary').innerHTML = diffHTML;
+        document.getElementById('refine-diff-box').classList.remove('hidden');
+      }, 700);
+    }
+
+    function approveSchema() {
+      if (!draftRefinement) return;
+
+      const section = sections[activeSectionId];
+      
+      // Save revised configs to in-memory store
+      const nextVerNum = parseFloat(section.audit[section.audit.length - 1].version.replace('v', '')) + 0.1;
+      const nextVerString = `v${nextVerNum.toFixed(1)}.0`;
+
+      // Log into historical Auditing Trail
+      section.audit.push({
+        version: nextVerString,
+        type: 'Prompt Schema Upgraded',
+        date: new Date().toISOString().split('T')[0],
+        by: 'Admin Approved',
+        desc: draftRefinement.changeSummary
+      });
+
+      section.prompt = draftRefinement.revisedPrompt;
+      section.schema = draftRefinement.revisedSchema;
+      section.data = draftRefinement.data;
+
+      // Update UI badges
+      document.getElementById('active-version-badge').textContent = `${nextVerString} (Active)`;
+      
+      // Refresh Renderer
+      discardRefine();
+      renderSection();
+
+      // Show tiny micro feedback notification
+      const flash = document.createElement('div');
+      flash.className = 'fixed bottom-5 right-5 bg-emerald-600 border border-emerald-500/20 text-white font-semibold text-xs px-4 py-2.5 rounded-lg shadow-2xl z-50 flex items-center space-x-2 animate-bounce';
+      flash.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Schema ${nextVerString} Approved & Rendering Updated Live!</span>`;
+      document.body.appendChild(flash);
+      setTimeout(() => flash.remove(), 4000);
+    }
+
+    function discardRefine() {
+      draftRefinement = null;
+      document.getElementById('refine-diff-box').classList.add('hidden');
+    }
+
+    function copyText(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text);
+      alert('Copied configuration properties to clipboard!');
+    }
+
+    // Init page render
+    window.onload = function() {
+      renderSection();
+    }
+  </script>
+</body>
+</html>
